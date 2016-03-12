@@ -41,7 +41,7 @@ def printMatrix(msg, matrix):
 
     print ""
 
-def gram_schmidt(A):
+def QRdecomposition(A):
 	n = np.shape(A)[1]
 
 	Q =  np.zeros((n, n))
@@ -82,7 +82,7 @@ def getDiag(A):
     return diag
 
 def QRIteration(A):
-    Q, R = gram_schmidt(A)
+    Q, R = QRdecomposition(A)
 
     A2 = R.dot(Q)
 
@@ -91,7 +91,7 @@ def QRIteration(A):
     oldQ = Q
     while fabs(A[0][0] - A2[0][0]) >= epsilon:
         A = A2
-        Q, R = gram_schmidt(A)
+        Q, R = QRdecomposition(A)
         A2 = R.dot(Q)
 
         evectors = oldQ.dot(Q)
