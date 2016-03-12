@@ -3,7 +3,7 @@ import QRMatrix as QR
 print "=== Nana's QR decomposition ==="
 dim = input("Please enter dimensions you would like to use for the matrix A : ")
 
-A = QR.t1 #QR.generateSymMatrix(dim)
+A = QR.generateSymMatrix(dim)
 QR.printMatrix("Matrix A =", A)
 
 Q, R = QR.QRdecomposition(A)

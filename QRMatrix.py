@@ -2,15 +2,8 @@ from random import random, randint
 import numpy as np
 from math import fabs
 
-elemMax = 7 # Maximum matrix element
+elemMax = 10 # Maximum matrix element
 epsilon = 0.0000000001 # difference limit 10^-10
-
-#Test matrices
-t1 =  np.zeros((2, 2))
-t1[0][0] = 0
-t1[0][1] = 1
-t1[1][0] = -2
-t1[1][1] = -3
 
 # Generates random matrix element
 def randElem():
