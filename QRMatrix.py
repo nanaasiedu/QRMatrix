@@ -82,7 +82,7 @@ def QRIteration(A):
     evectors = Q
 
     oldQ = Q
-    while fabs(A[0][0] - A2[0][0]) >= epsilon:
+    while not isApproxDiag(A2):
         A = A2
         Q, R = QRdecomposition(A)
         A2 = R.dot(Q)
@@ -91,3 +91,14 @@ def QRIteration(A):
         oldQ = evectors
 
     return getDiag(A2), evectors
+
+def isApproxDiag(A):
+    m, n = A.shape[:2]
+
+    for j in range(m):
+        for i in range(n):
+            if i != j:
+                if A[j][i] >= epsilon:
+                    return False
+
+    return True
